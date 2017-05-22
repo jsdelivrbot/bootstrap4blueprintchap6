@@ -1,11 +1,21 @@
 <header role="banner">
-  <nav class="navbar navbar-light" role="navigation">
-  <a class="navbar-brand" href="index.html"><img src="{{root}}/images/logo.png" alt="Bootstrappin'" width="120"></a>
-   <button class="navbar-toggler hidden-md-up pull-xs-right" type="button" data-toggle="collapse" data-target="#collapsiblecontent">
+  <div class="container">
+   <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsiblecontent">
     &#9776;
-  </button>
-  <ul class="nav navbar-nav navbar-toggleable-sm collapse" id="collapsiblecontent">
+   </button>
+   <a class="navbar-brand" href="/"><img src="{{root}}/images/logo.png" alt="Bootstrappin'"></a> 
+   <div class="utility-nav">
+      <ul>
+        <li><a href="#" title="Login or Register"><i class="icon fa fa-user fa-lg"></i><span> Log In or Register</span></a></li>
+        <li><a href="#" title="View Cart"><i class="icon fa fa-shopping-cart fa-lg"></i><span> View Cart</span></a></li>
+      </ul>
+   </div>
+  </div>     
+  <nav class="navbar navbar-full" role="navigation">
+  <div class="container navbar-toggleable-md collapse" id="collapsiblecontent">
+  <ul class="nav navbar-nav">
   {{#each productgroups}}
+    {{#ifCond this 'All Departments'}}</ul><ul class="nav navbar-nav pull-lg-right">{{/ifCond}}
     <li class="nav-item dropdown {{#ifCond this 'Shoes'}}active{{/ifCond}}">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       {{ this }}
@@ -20,5 +30,6 @@
     </li>
   {{/each}} 
   </ul>
+  </div>
   </nav>
 </header>

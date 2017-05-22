@@ -1,22 +1,28 @@
 .navbar {
-  background-color: #fff; // white;
+
   @include media-breakpoint-up(md) {
     padding-top: 0;
     padding-bottom: 0;
   }
-  .nav-link, 
-  {
-    padding: $spacer;  
-    &:hover,
-    &.active {
-      background-color: $gray-lightest;
+  @include media-breakpoint-only(md) {
+    .nav-item + .nav-item {
+      margin-left: 0;
     }
   }
-  .navbar-brand {
-    //padding: ($spacer - ((($font-size-lg - $font-size-base) * $line-height) / 2));
-    padding: ($spacer - ((2.16rem - ($font-size-base * $line-height)) / 2));
+  .nav-link
+  {
+    padding: $spacer;
+    @include media-breakpoint-only(md) {
+      padding: $spacer-y ($spacer-x / 2);
+    } 
+    @include media-breakpoint-up(md) {
+     text-transform: uppercase;
+     font-size: 82%;
+     font-weight: bold;
+    }  
   }
-  @include media-breakpoint-down(sm) {
+
+  @include media-breakpoint-down(md) {
     .navbar-brand,
     .nav-item {
       float: none;
@@ -42,4 +48,30 @@
       border-radius: initial;  
     }
   }
+}
+
+// responsive color scheme
+.navbar {
+  background-color: $navbar-xs-bg;
+  color: $navbar-xs-color;
+  
+  .nav-link
+  {
+    @include hover-focus-active {
+      background-color: $navbar-xs-hover-bg;
+    }
+  }
+  
+  @include media-breakpoint-up(md) {
+    background-color: $navbar-md-bg;
+    color: $navbar-md-color;
+    
+    .nav-link 
+    {
+      color: $navbar-md-color;
+      @include hover-focus-active {
+        background-color: $navbar-md-hover-bg;
+      }
+    }
+  }  
 }
